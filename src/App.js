@@ -1,46 +1,29 @@
 import React from 'react';
 import './styles/styles.scss';
-import Curso from './Curso'
 import Banner from './Banner'
-// import Formulario from './Formulario'
+import Course from './Course'
+import Formulario from './Formulario'
+import CourseGrid from './CourseGrid'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import MainMenu from './Mainmenu'
+import Historial from './Historial'
 
-const cursos = [
-  {
-    'title':'React desde cero',
-    'image':'https://drupal.ed.team/sites/default/files/styles/16_9_medium/public/imagenes-cdn-edteam/2019-04/React%20desde%20cero%20%281%29.png',
-    'price':40,
-    'profesor':'Beto Quiroga'
-  },
-  {
-    'title':'Drupal desde cero',
-    'image':'https://drupal.ed.team/sites/default/files/styles/medium/public/courses/images/drupal-poster-720_3.jpg?itok=e93ErhMN',
-    'price':50,
-    'profesor':'Beto Quiroga'
-  },
-  {
-    'title':'Go desde cero',
-    'image':'https://drupal.ed.team/sites/default/files/styles/medium/public/courses/images/go_0.jpg?itok=k2amLhrN',
-    'price':30,
-    'profesor':'Alexys Lozada'
-  },
-  {
-    'title':'HTML desde cero',
-    'image':'https://drupal.ed.team/sites/default/files/styles/medium/public/courses/images/HTML-2018.jpg?itok=Gyvm-W9t',
-    'price':10,
-    'profesor':'Alvaro Felipe'
-}
-]
 const App =()=> (
-  <> 
-  <Banner />
-  {/* <Formulario name="EDteam"/> */}
-  <div className="ed-grid m-grid-4">
-    {
-      cursos.map((curso,index)=> <Curso key={index} title={curso.title} image={curso.image} price={curso.price} profesor={curso.profesor} />)
-    }
-  
-  </div>
-  </>
+  <Router>
+    <MainMenu />
+    <Switch>
+      <Route path="/" exact component={ Banner}/>  
+      <Route path="/cursos/:id" component={ Course}/>  
+      <Route path="/cursos" component={ CourseGrid}/>  
+      <Route path="/historial" component={ Historial }/>  
+      <Route path="/formulario" component={ ()=> <Formulario name="Página de contacto"/>}/>  
+      <Route component={()=>(
+        <div className="ed-grid">
+          <h2>Error 404 Not found</h2>
+        </div>
+      )}/>
+    </Switch>
+  </Router>
 )
 
 
