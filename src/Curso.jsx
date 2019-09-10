@@ -23,7 +23,7 @@ const Curso = ({ title, image, price,profesor}) => (
 Curso.propTypes = {
   title: PropTypes.string,
   image: PropTypes.string,
-  price: PropTypes.string,
+  price: PropTypes.number,
   profesor: PropTypes.string
 }
 Curso.defaultProps ={

@@ -36,11 +36,9 @@ const App =()=> (
   {/* <Formulario name="EDteam"/> */}
   <div className="ed-grid m-grid-4">
     {
-      cursos.map(curso=> <Curso title={curso.title} image={curso.image} price={curso.price} profesor={curso.profesor} />)
+      cursos.map((curso,index)=> <Curso key={index} title={curso.title} image={curso.image} price={curso.price} profesor={curso.profesor} />)
     }
   
-  
-
   </div>
   </>
 )
