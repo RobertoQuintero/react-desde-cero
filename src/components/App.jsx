@@ -1,22 +1,24 @@
-import React from 'react';
-import './styles/styles.scss';
-import Banner from './Banner'
-import Course from './Course'
-import Formulario from './Formulario'
-import CourseGrid from './CourseGrid'
+import React from 'react'
+import '../styles/styles.scss'
+import Home from './Pages/Home'
+import Course from './Pages/Course'
+import Form from './Pages/Form'
+import CourseGrid from './Organisms/CourseGrid'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import MainMenu from './Mainmenu'
-import Historial from './Historial'
+import MainMenu from './Organisms/MainMenu'
+import History from './Pages/History'
+import Users from './Pages/Users'
 
 const App =()=> (
   <Router>
     <MainMenu />
     <Switch>
-      <Route path="/" exact component={ Banner}/>  
+      <Route path="/" exact component={ Home}/>  
       <Route path="/cursos/:id" component={ Course}/>  
       <Route path="/cursos" component={ CourseGrid}/>  
-      <Route path="/historial" component={ Historial }/>  
-      <Route path="/formulario" component={ ()=> <Formulario name="Página de contacto"/>}/>  
+      <Route path="/historial" component={ History }/>  
+      <Route path="/users" component={ Users }/>  
+      <Route path="/formulario" component={ ()=> <Form name="Página de contacto"/>}/>  
       <Route component={()=>(
         <div className="ed-grid">
           <h2>Error 404 Not found</h2>

@@ -1,5 +1,6 @@
 import React from 'react'
-import Curso from './Curso'
+import CourseCard from '../Molecules/CourseCard'
+
 const courses = [
   {
     'id': 1,
@@ -34,13 +35,13 @@ const courses = [
 const CourseGrid = () => (
   <div className="ed-grid ed-grid m-grid-4">
     { courses.map(course => (
-      <Curso 
+      <CourseCard 
       key={course.id} 
       id={course.id} 
       title={course.title}
       image={course.image}
       price={course.price}
-      profesor={course.profesor}/>)
+      professor={course.professor}/>)
 
     )}
   </div>
