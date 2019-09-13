@@ -1,5 +1,6 @@
 import React from 'react'
 import UserCard from '../Molecules/UserCard'
+import withLoader from '../HOC/withLoader';
 
 const UsersGrid = ({users}) => {
   return ( 
@@ -7,9 +8,8 @@ const UsersGrid = ({users}) => {
         <h1>Usuarios</h1>
         <div className="ed-grid s-grid-2 m-grid-3 l-grid-4">
           {
-            users.length===0
-              ? <div className="t3">Cargando ...</div>
-              : users.map(u=> <UserCard key={u.id} name={u.name} username={u.username} email={u.email}/>)
+           
+               users.map(u=> <UserCard key={u.id} name={u.name} username={u.username} email={u.email}/>)
 
             }
         </div>
@@ -17,4 +17,4 @@ const UsersGrid = ({users}) => {
    );
 }
  
-export default UsersGrid;
+export default withLoader('users')(UsersGrid) ;
