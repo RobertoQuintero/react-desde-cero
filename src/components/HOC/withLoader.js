@@ -4,7 +4,7 @@ const withLoader = (propValue)=>(WrappedComponent) =>{
   return class WithLoader extends Component {
     constructor(props){
       super(props)
-      
+      this.state={}
     }
     render(){
       

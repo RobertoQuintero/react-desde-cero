@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import CourseCard from '../Molecules/CourseCard'
 import axios from 'axios'
 import CourseGrid from '../Organisms/CourseGrid'
 
@@ -12,15 +11,13 @@ class Courses extends Component {
      }
   }
   componentDidMount() {
-    axios.get('http://my-json-server.typicode.com/RobertoQuintero/demo/db')
+    axios.get('http://my-json-server.typicode.com/RobertoQuintero/demo/courses')
       .then(response => {
         this.setState({
-          courses: response.data.courses
+          courses: response.data
         })
-        console.log(response.data.courses)
       })
   }
-  
   render() { 
     const {courses} = this.state
     return ( 

@@ -1,49 +1,36 @@
-import React from 'react'
-
-const courses = [
-  {
-    'id': 1,
-    'title':'React desde cero',
-    'image':'https://drupal.ed.team/sites/default/files/styles/16_9_medium/public/imagenes-cdn-edteam/2019-04/React%20desde%20cero%20%281%29.png',
-    'price':40,
-    'profesor':'Beto Quiroga'
-  },
-  {
-    'id': 2,
-    'title':'Drupal desde cero',
-    'image':'https://drupal.ed.team/sites/default/files/styles/medium/public/courses/images/drupal-poster-720_3.jpg?itok=e93ErhMN',
-    'price':50,
-    'profesor':'Beto Quiroga'
-  },
-  {
-    'id': 3,
-    'title':'Go desde cero',
-    'image':'https://drupal.ed.team/sites/default/files/styles/medium/public/courses/images/go_0.jpg?itok=k2amLhrN',
-    'price':30,
-    'profesor':'Alexys Lozada'
-  },
-  {
-    'id': 4,
-    'title':'HTML desde cero',
-    'image':'https://drupal.ed.team/sites/default/files/styles/medium/public/courses/images/HTML-2018.jpg?itok=Gyvm-W9t',
-    'price':10,
-    'profesor':'Alvaro Felipe'
-}
-]
+import React, {useState,useEffect} from 'react'
+import axios from 'axios'
+// import useCourse from '../CustomHooks/useCourse'
 
 const Course = ({match}) => {
-  const cursoActual = courses.filter( c => c.id === parseInt(match.params.id))[0]
+  const [state,setState]= useState({  })
+ 
+  useEffect(()=>{
+    axios.get(`http://my-json-server.typicode.com/RobertoQuintero/demo/courses/${match.params.id}`)
+      .then(response =>  setState(response.data))
+  },[])
+
+  // const myComment = e =>{
+  //   setComment(e.target.value)
+  // }
 
   return (
     <div className="ed-grid m-grid-3">
      {
-       cursoActual
+       state
         ? (
-          <>
-            <h1 className="m-cols-3">{cursoActual.title}</h1>
-            <img className="m-cols-1" src={cursoActual.image} alt={cursoActual.title}/>
-            <p className="m-cols-2">Profesor: {cursoActual.profesor}</p>
-          </>
+          <div className="ed-grid">
+            <div className="l-block">
+              <h1 className="m-cols-3">{state.title}</h1>
+              <img className="m-cols-1" src={state.image} alt={state.title}/>
+              <p className="m-cols-2">Profesor: {state.professor}</p>
+            </div>
+            {/* <div>
+              <h2>Escribe tu comentario</h2>
+              <input type="text" placeholder="Escribe..." onChange={myComment.bind(this)} id=""/>
+              <p>{comment}</p>
+            </div> */}
+          </div>
         )
         : (
             <h1>El curso no existe</h1>

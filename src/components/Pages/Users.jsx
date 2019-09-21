@@ -29,9 +29,7 @@ componentDidMount() {
     })
     
   })
-}
-
-  
+} 
   render() {
     const {users} = this.state 
     return ( 
