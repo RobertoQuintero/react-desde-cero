@@ -9,7 +9,7 @@ const UsersGrid = ({users}) => {
         <div className="ed-grid s-grid-2 m-grid-3 l-grid-4">
           {
            
-               users.map(u=> <UserCard key={u.id} name={u.name} username={u.username} email={u.email}/>)
+               users.map(u=> <UserCard key={u.id} name={u.name} username={u.username} email={u.email} id={u.id}/>)
 
             }
         </div>

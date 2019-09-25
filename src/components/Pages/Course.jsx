@@ -4,7 +4,7 @@ import axios from 'axios'
 
 const Course = ({match}) => {
   const [state,setState]= useState({  })
- 
+ console.log(match.params.id)
   useEffect(()=>{
     axios.get(`http://my-json-server.typicode.com/RobertoQuintero/demo/courses/${match.params.id}`)
       .then(response =>  setState(response.data))

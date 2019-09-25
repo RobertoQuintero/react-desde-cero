@@ -1,6 +1,6 @@
 import React from 'react';
 import CourseCard from '../Molecules/CourseCard'
-import withLoader from '../HOC/withLoader';
+// import withLoader from '../HOC/withLoader';
 
 
 const CourseGrid = ({courses}) => {
@@ -21,4 +21,4 @@ const CourseGrid = ({courses}) => {
    );
 }
  
-export default withLoader('courses')(CourseGrid);
+export default CourseGrid;
