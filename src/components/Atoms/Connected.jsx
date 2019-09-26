@@ -7,7 +7,7 @@ const Connected = ({usersLength}) =>(
   </li>
 )
 const mapStateToProps = state=>({
-  usersLength: state.usersReducer.users
+  usersLength: state.usersReducer.users //aqui va el reducer follow
 })
 
 const mapDispatchToProps =()=>({})
