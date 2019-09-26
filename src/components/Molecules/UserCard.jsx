@@ -1,6 +1,5 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import { removeUser, addUser } from '../../redux/actionCreators';
+
 
 const UserCard = ({name,username,email,users,id,removeFromUsers,addToUsers}) => {
   return ( 
@@ -11,27 +10,12 @@ const UserCard = ({name,username,email,users,id,removeFromUsers,addToUsers}) => 
           {username}
         </div>
         <div className="s-main-center">
-          {
-             users.find(a=>a===id)
-              ? <button className="button--ghost-alert button--tiny" onClick={()=> removeFromUsers(id)}>Dejar de seguir</button>
-              : <button className="button--ghost-alert button--tiny" onClick={()=> addToUsers(id) }>{email}</button>
-          } 
+        <button className="button--ghost-alert button--tiny" >{email}</button> 
         </div>
       </div>
     </article>
    );
 }
-const mapStateToProps = state => ({
-  ...state,
-  users: state.cartReducer.users
-})
-const mapDispatchToProps = dispatch =>({
-  removeFromUsers(id){
-    dispatch(removeUser(id))
-  },
-  addToUsers(id){
-    dispatch(addUser(id))
-  }
-})
+
  
-export default connect(mapStateToProps,mapDispatchToProps)(UserCard)
+export default UserCard

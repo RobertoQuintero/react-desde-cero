@@ -1,7 +1,6 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
-import CartCounter from '../Atoms/CartCounter'
-import Connected from '../Atoms/Connected'
+
 
 const MainMenu = () => {
   return ( 
@@ -19,8 +18,7 @@ const MainMenu = () => {
               <li><NavLink to="/cursos" activeClassName="activo">Cursos</NavLink></li>
               <li><NavLink to="/formulario" activeClassName="activo">Formulario</NavLink></li>
               <li><NavLink to="/users" activeClassName="activo">Usuarios</NavLink></li>
-              <CartCounter />
-              <Connected />
+            
             </ul>
           </nav>
           <div className="main-menu-toggle to-l" id="main-menu-toggle"></div>
